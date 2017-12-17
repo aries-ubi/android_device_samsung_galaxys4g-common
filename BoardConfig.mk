@@ -15,38 +15,18 @@
 #
 
 # Kernel Config
-TARGET_KERNEL_CONFIG := custom_galaxys4gmtd_defconfig
+TARGET_KERNEL_CONFIG := custom_fascinate4gubi_defconfig
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/galaxys4gmtd/bluetooth
+TARGET_OTA_ASSERT_DEVICE := fascinate4gubi
 
-TARGET_OTA_ASSERT_DEVICE := galaxys4g,galaxys4gmtd,telusgalaxys4g,telusgalaxys4gmtd,SGH-T959P,SGH-T959V,SGH-T959W
-
-# Import the aries-common BoardConfigCommon.mk
-include device/samsung/aries-common/BoardConfigCommon.mk
-
-# Override stuff that doesn't match aries-common
-BOARD_SECOND_CAMERA_DEVICE := /dev/video2
-BOARD_CAMERA_FFC_FLIPPED := true
-TARGET_RECOVERY_FSTAB := device/samsung/galaxys4gmtd/rootdir/fstab.aries
+# Import the common BoardConfigCommon.mk
+include device/samsung/fascinate4g-common/BoardConfigCommon.mk
 
 # Header overrides
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/galaxys4gmtd/overlay/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/fascinate4gubi/include
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/galaxys4gmtd
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/fascinate4gubi
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/galaxys4gmtd/sepolicy
-
-# Filesystems and sizes
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 629145600
-BOARD_CACHEIMAGE_PARTITION_SIZE := 104857600
-
-# TWRP
-RECOVERY_SDCARD_ON_DATA := true
-TW_EXTERNAL_STORAGE_MOUNT_POINT :=
-TW_EXTERNAL_STORAGE_PATH :=
-TW_INTERNAL_STORAGE_MOUNT_POINT :=
-TW_INTERNAL_STORAGE_PATH :=
+BOARD_SEPOLICY_DIRS += device/samsung/fascinate4gubi/sepolicy

@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_galaxys4gmtd.mk
+    $(LOCAL_DIR)/aosp_fascinate4gubi.mk

@@ -3,16 +3,6 @@
 # to provide their own GPS initialization code without
 # conflicting with the default GPS init. (i.e. Vibrant, Galaxy S 4G)
 #
-# Some files are dummies in that they only exist on certain variants.
-# They are only started when they're present; if they're not then its
-# a harmless error.
-#
-
-service gps_init /sbin/init.aries.gps.sh
-    user root
-    oneshot
-    disabled
-    seclabel u:r:gps_init:s0
 
 # +STE GPS Daemon
 #GPS_CHIPSET_STE_CG2900
@@ -21,17 +11,12 @@ service agpsd /vendor/bin/agpsd
     user gps
     group system inet wakelock
     oneshot
-    disabled
 
 # +STE UART Contol Application
 service ste-cg29xx_ctrl /vendor/bin/ste-cg29xx_ctrl -b 115200 /dev/s3c2410_serial1
     user system
     group system misc
     oneshot
-    disabled
-
-on boot
-    start gps_init
 
 on post-fs-data
     # create data/gps for GPS daemon
@@ -40,11 +25,31 @@ on post-fs-data
     chown gps root /sys/class/sec/gps/GPS_PWR_EN/value
     chmod 660 /sys/class/sec/gps/GPS_PWR_EN/value
 
-on property:gps.variant=cg2900
-    # bind mount files
-    mount squashfs /vendor/lib/libclientgps.so.telusgalaxys4gmtd /vendor/lib/libclientgps.so ro bind
-    mount squashfs /vendor/lib/hw/gps.aries.so.telusgalaxys4gmtd /vendor/lib/hw/gps.aries.so ro bind
-    start agpsd
-
 on property:init.svc.agpsd=stopped
+#   GPS_CHIPSET_STE_CG2900
+#   STE: Added for CG2900 Support
+#   +Scott.Re-setup permission right
+    chown system:system /dev/cg2900_audio
+    chmod 0770 /dev/cg2900_audio
+    chown system:system /dev/cg2900_bt_audio
+    chmod 0770 /dev/cg2900_bt_audio
+    chown system:system /dev/cg2900_core
+    chmod 0770 /dev/cg2900_core
+    chown system:system /dev/cg2900_driver0
+    chmod 0770 /dev/cg2900_driver0
+    chown system:system /dev/cg2900_fm_audio
+    chmod 0770 /dev/cg2900_fm_audio
+    chown gps:system /dev/cg2900_gnss
+    chmod 0770 /dev/cg2900_gnss
+    chown system:system /dev/cg2900_hci_logger
+    chmod 0770 /dev/cg2900_hci_logger
+    chown system:system /dev/cg2900_us_ctrl
+    chmod 0770 /dev/cg2900_us_ctrls
+
     start ste-cg29xx_ctrl
+
+#   GPS_CHIPSET_STE_CG2900
+#   STE: Added for CG2900 Support
+#   +Scott.Re-setup permission right
+    chown system:system /dev/s3c2410_serial1
+    chmod 0770 /dev/s3c2410_serial1

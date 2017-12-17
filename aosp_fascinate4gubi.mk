@@ -20,17 +20,13 @@
 # Low ram device
 TARGET_LOW_RAM_DEVICE := true
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/apns-conf.xml:system/etc/apns-conf.xml
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := aosp_galaxys4gmtd
-PRODUCT_DEVICE := galaxys4gmtd
+PRODUCT_NAME := aosp_fascinate4gubi
+PRODUCT_DEVICE := fascinate4gubi
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := galaxys4g
+PRODUCT_MODEL := SGH-T959P
 PRODUCT_MANUFACTURER := samsung
 
-$(call inherit-product, device/samsung/galaxys4gmtd/device.mk)
+$(call inherit-product, device/samsung/fascinate4gubi/device.mk)

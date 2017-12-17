@@ -1,5 +1,5 @@
 ###########################
-# OmniROM galaxys4gmtd sepolicy
+# OmniROM fascinate4gubi sepolicy
 #
 type_transition gpsd system_data_file:file gps_data_file;
 

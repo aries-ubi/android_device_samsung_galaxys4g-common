@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL galaxys4gmtd devices, and
-# are also specific to galaxys4gmtd devices
+# This file includes all definitions that apply to ALL fascinate4gubi devices, and
+# are also specific to fascinate4gubi devices
 #
 # Everything in this directory will become public
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-  LOCAL_KERNEL := device/samsung/galaxys4gmtd-kernel/zImage
+  LOCAL_KERNEL := device/samsung/fascinate4gubi-kernel/zImage
 else
   LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -28,61 +28,12 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-DEVICE_PACKAGE_OVERLAYS += \
-    device/samsung/galaxys4gmtd/overlay
-
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/config/asound.conf:system/etc/asound.conf
-
 # Init files
 PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/rootdir/init.aries.rc:root/init.aries.rc \
-    device/samsung/galaxys4gmtd/rootdir/init.aries.gps.rc:root/init.aries.gps.rc \
-    device/samsung/galaxys4gmtd/rootdir/init.recovery.aries.rc:root/init.recovery.aries.rc \
-    device/samsung/galaxys4gmtd/rootdir/ueventd.aries.rc:root/ueventd.aries.rc \
-    device/samsung/galaxys4gmtd/rootdir/sbin/init.aries.gps.sh:root/sbin/init.aries.gps.sh \
-    device/samsung/galaxys4gmtd/rootdir/sbin/init.aries.modem.sh:root/sbin/init.aries.modem.sh
-
-# FSTAB files
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/rootdir/fstab.aries:root/fstab.aries \
-    device/samsung/galaxys4gmtd/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
-
-# Prebuilt kl and kcm keymaps
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/config/aries-keypad.kl:system/usr/keylayout/aries-keypad.kl \
-    device/samsung/galaxys4gmtd/config/aries-keypad.kcm:system/usr/keychars/aries-keypad.kcm \
-    device/samsung/galaxys4gmtd/config/cypress-touchkey.kl:system/usr/keylayout/cypress-touchkey.kl
-
-# updater.sh
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4gmtd/updater.sh:updater.sh
-
-# This device is hdpi
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi xhdpi xxhdpi
-
-# GPS packages
-PRODUCT_PACKAGES += \
-    gpsd-shim
-
-# Utilities
-PRODUCT_PACKAGES += \
-    utility_mksquashfs \
-    utility_ubiupdatevol
-
-# HSPA+/HSUPA Overrides
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.ril.gprsclass=12 \
-    ro.ril.hsdpa.category=14 \
-    ro.ril.hsupa.category=6 \
-    ro.ril.hsxpa=2 \
-    net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
+    device/samsung/fascinate4gubi/rootdir/init.aries.gps.rc:root/init.aries.gps.rc
 
 # Inherit Aries common device configuration.
-$(call inherit-product, device/samsung/aries-common/device_base.mk)
+$(call inherit-product, device/samsung/fascinate4g-common/device_base.mk)
 
 # Inherit the vendor blobs
-$(call inherit-product-if-exists, vendor/samsung/galaxys4gmtd/galaxys4gmtd-vendor.mk)
+$(call inherit-product, vendor/samsung/fascinate4gubi/fascinate4gubi-vendor.mk)

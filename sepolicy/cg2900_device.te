@@ -1,5 +1,5 @@
 ###########################
-# OmniROM galaxys4gmtd sepolicy
+# OmniROM fascinate4gubi sepolicy
 #
 type cg2900, domain;
 type cg2900_exec, exec_type, file_type;
