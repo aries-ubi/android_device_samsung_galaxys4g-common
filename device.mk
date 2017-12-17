@@ -28,12 +28,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-# Init files
-PRODUCT_COPY_FILES += \
-    device/samsung/fascinate4gubi/rootdir/init.aries.gps.rc:root/init.aries.gps.rc
 
 # Inherit Aries common device configuration.
-$(call inherit-product, device/samsung/fascinate4g-common/device_base.mk)
+$(call inherit-product, device/samsung/galaxys4g-common/device_base.mk)
 
 # Inherit the vendor blobs
 $(call inherit-product, vendor/samsung/fascinate4gubi/fascinate4gubi-vendor.mk)

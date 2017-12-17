@@ -20,13 +20,10 @@ TARGET_KERNEL_CONFIG := custom_fascinate4gubi_defconfig
 TARGET_OTA_ASSERT_DEVICE := fascinate4gubi
 
 # Import the common BoardConfigCommon.mk
-include device/samsung/fascinate4g-common/BoardConfigCommon.mk
+include device/samsung/galaxys4g-common/BoardConfigCommon.mk
 
 # Header overrides
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/fascinate4gubi/include
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/fascinate4gubi
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/fascinate4gubi/sepolicy
