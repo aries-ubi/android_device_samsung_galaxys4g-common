@@ -1,0 +1,26 @@
+
+/dev/pvrsrvkm             0666   system     system
+/dev/video0               0660   system     camera
+/dev/video1               0660   system     camera
+/dev/video2               0660   system     camera
+/dev/s3c-jpg              0660   system     camera
+/dev/s3c-mfc              0660   media      drmrpc
+
+/dev/s3c2410_serial3      0660   radio      radio
+/dev/block/mtdblock6      0660   radio      radio
+/dev/mtd/mtd6ro           0660   radio      radio
+/dev/onedram              0660   radio      radio
+
+# for Sensor HAL
+/dev/accelerometer        0660   system     system
+/sys/devices/virtual/input/input*   delay      0660  root   input
+/sys/devices/virtual/input/input*   poll_delay 0660  root   input
+
+# for geomagneticd
+/sys/devices/virtual/input/input3   threshold      0660  root   input
+/sys/devices/virtual/input/input3   distortion     0660  root   input
+/sys/devices/virtual/input/input3   shape          0660  root   input
+/sys/devices/virtual/input/input3   offsets        0660  root   input
+
+# for GPS
+/dev/s3c2410_serial1      0600   gps        gps

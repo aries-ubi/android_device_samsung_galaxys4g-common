@@ -22,7 +22,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter fascinate4gubi, $(TARGET_DEVICE)),)
+ifneq ($(filter galaxys4gmtd telusgalaxys4gmtd galaxys4gubi telusgalaxys4gubi, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
