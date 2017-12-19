@@ -25,14 +25,10 @@ BOARD_SECOND_CAMERA_DEVICE := /dev/video2
 BOARD_CAMERA_FFC_FLIPPED := true
 TARGET_RECOVERY_FSTAB := device/samsung/galaxys4g-common/rootdir/fstab.aries
 
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/galaxys4g-common
-
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/galaxys4g-common/sepolicy
 
 # Filesystems and sizes
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 629145600
 BOARD_CACHEIMAGE_PARTITION_SIZE := 104857600
 

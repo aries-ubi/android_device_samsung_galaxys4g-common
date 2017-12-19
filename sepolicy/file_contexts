@@ -1,4 +1,0 @@
-# Radio
-/dev/mtd/mtd6                                                           u:object_r:radio_device:s0
-/dev/mtd/mtd6ro                                                         u:object_r:radio_device:s0
-/dev/block/mtdblock6                                                    u:object_r:radio_device:s0

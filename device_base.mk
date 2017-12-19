@@ -35,8 +35,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     device/samsung/galaxys4g-common/rootdir/init.aries.rc:root/init.aries.rc \
-    device/samsung/galaxys4g-common/rootdir/init.recovery.aries.rc:root/init.recovery.aries.rc \
-    device/samsung/galaxys4g-common/rootdir/ueventd.aries.rc:root/ueventd.aries.rc
+    device/samsung/galaxys4g-common/rootdir/init.recovery.aries.rc:root/init.recovery.aries.rc
 
 # FSTAB files
 PRODUCT_COPY_FILES += \
@@ -48,21 +47,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/galaxys4g-common/config/aries-keypad.kl:system/usr/keylayout/aries-keypad.kl \
     device/samsung/galaxys4g-common/config/aries-keypad.kcm:system/usr/keychars/aries-keypad.kcm \
     device/samsung/galaxys4g-common/config/cypress-touchkey.kl:system/usr/keylayout/cypress-touchkey.kl
-
-# updater.sh
-PRODUCT_COPY_FILES += \
-    device/samsung/galaxys4g-common/updater.sh:updater.sh
-
-# This device is hdpi
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi xhdpi xxhdpi
-
-# Utilities
-PRODUCT_PACKAGES += \
-    utility_mksquashfs \
-    utility_ubiupdatevol
 
 # HSPA+/HSUPA Overrides
 PRODUCT_PROPERTY_OVERRIDES += \
